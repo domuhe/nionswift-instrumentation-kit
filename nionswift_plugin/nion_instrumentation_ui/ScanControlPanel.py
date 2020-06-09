@@ -932,7 +932,10 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
         open_controls_widget = ui.create_canvas_widget(properties={"height": 24, "width": 24})
         open_controls_widget.canvas_item.add_canvas_item(open_controls_button)
         simulate_button = ui.create_push_button_widget(_("Simulate"))
-        profile_label = ui.create_label_widget(_("Scan profile: "), properties={"margin": 4})
+        #DMH : changel label string and added profile_label2
+        profile_label = ui.create_label_widget(_("SSTEM Scan profile: "), properties={"margin": 4})
+        profile_label2 = ui.create_label_widget(_("SSTEM"), properties={"margin": 4})
+        #
         profile_combo = ui.create_combo_box_widget(properties={"min-width": 72})
         play_state_label = ui.create_label_widget()
         play_button = ui.create_push_button_widget(_("Scan"))
@@ -951,6 +954,9 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
         button_row1 = ui.create_row_widget(properties={"spacing": 2})
         button_row1.add(profile_label)
         button_row1.add(profile_combo)
+        # DMH : added profile_label2
+        button_row1.add(profile_label2)
+        #
         button_row1.add_stretch()
         button_row1.add(open_controls_widget)
 
@@ -1421,7 +1427,9 @@ class ScanControlPanel(Panel.Panel):
     def __init__(self, document_controller, panel_id, properties):
         super(ScanControlPanel, self).__init__(document_controller, panel_id, "scan-control-panel")
         ui = document_controller.ui
-        self.widget = ui.create_column_widget()
+        # DMH 20191108: added background color
+        self.widget = ui.create_column_widget(properties={"stylesheet" : "background-color: #EDFFF5"})
+        #
         self.__scan_control_widget = None
         self.__hardware_source_id = properties["hardware_source_id"]
         # listen for any hardware added or removed messages, and refresh the list
@@ -1727,7 +1735,8 @@ def run():
 
             factory_id = "scan-live-" + hardware_source.hardware_source_id
             DisplayPanel.DisplayPanelManager().register_display_panel_controller_factory(factory_id, ScanDisplayPanelControllerFactory())
-            name = hardware_source.display_name + " " + _("Scan Control")
+            # DMH : change label to reflect that this panel has SSTEM modifications
+            name = hardware_source.display_name + " " + _("SSTEM Scan Control")
             properties = {"hardware_source_id": hardware_source.hardware_source_id}
             Workspace.WorkspaceManager().register_panel(ScanControlPanel, panel_id, name, ["left", "right"], "left", properties)
 
