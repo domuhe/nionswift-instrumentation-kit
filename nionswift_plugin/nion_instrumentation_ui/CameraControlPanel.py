@@ -836,7 +836,8 @@ class CameraControlPanel(Panel.Panel):
     def __init__(self, document_controller, panel_id, properties):
         super().__init__(document_controller, panel_id, "camera-control-panel")
         ui = document_controller.ui
-        self.widget = ui.create_column_widget()
+        # DMH 20191108: added background-color
+        self.widget = ui.create_column_widget(properties={"stylesheet": "background-color: #E7F3FF"})
         self.hardware_source_id = properties["hardware_source_id"]
         camera_controller = HardwareSource.HardwareSourceManager().get_hardware_source_for_hardware_source_id(self.hardware_source_id)
         if camera_controller:
