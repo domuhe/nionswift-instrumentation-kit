@@ -618,7 +618,7 @@ class CameraControlWidget(Widgets.CompositeWidgetBase):
             self.__state_controller.handle_increase_exposure()
             exposure_field.request_refocus()
 
-        exposure_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        exposure_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         exposure_field.on_editing_finished = handle_exposure_changed
 
         parameters_group1 = ui.create_row_widget()

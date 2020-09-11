@@ -949,6 +949,7 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
         record_abort_button.on_clicked = self.__state_controller.handle_record_abort_clicked
         probe_state_label = ui.create_label_widget(_("Unknown"))
         positioned_check_box = ui.create_check_box_widget(_("Positioned"))
+
         ac_line_sync_check_box = ui.create_check_box_widget(_("AC Line Sync"))
 
         button_row1 = ui.create_row_widget(properties={"spacing": 2})
@@ -972,7 +973,7 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
             self.__state_controller.handle_increase_width()
             width_field.request_refocus()
 
-        width_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        width_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         width_field.on_editing_finished = handle_width_changed
 
         def handle_height_changed(text):
@@ -987,7 +988,7 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
             self.__state_controller.handle_increase_height()
             height_field.request_refocus()
 
-        height_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        height_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         height_field.on_editing_finished = handle_height_changed
 
         def handle_time_changed(text):
@@ -1002,7 +1003,7 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
             self.__state_controller.handle_increase_time()
             time_field.request_refocus()
 
-        time_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        time_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         time_field.on_editing_finished = handle_time_changed
 
         def handle_fov_changed(text):
@@ -1017,14 +1018,14 @@ class ScanControlWidget(Widgets.CompositeWidgetBase):
             self.__state_controller.handle_increase_fov()
             time_field.request_refocus()
 
-        fov_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        fov_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         fov_field.on_editing_finished = handle_fov_changed
 
         def handle_rotation_changed(text):
             self.__state_controller.handle_rotation_changed(text)
             rotation_field.request_refocus()
 
-        rotation_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight"})  # note: this alignment technique will not work in future
+        rotation_field = ui.create_line_edit_widget(properties={"width": 44, "stylesheet": "qproperty-alignment: AlignRight", "stylesheet": "background-color: white"})  # note: this alignment technique will not work in future
         rotation_field.on_editing_finished = handle_rotation_changed
 
         time_row = ui.create_row_widget(properties={"margin": 4, "spacing": 2})
